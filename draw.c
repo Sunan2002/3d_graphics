@@ -137,7 +137,7 @@ struct matrix * generate_torus( double cx, double cy, double cz,
   struct matrix * points = new_matrix(4,4);
   for(int cir = 0; cir < step; cir++){
     double phi = cir * 2 * M_PI / step;
-    for(int rot = 0; rot < step; rot++){
+    for(int rot = 0; rot < 2 * step; rot++){
       double theta = rot * M_PI / step;
       double x = cos(phi) * (r1 * cos(theta) + r2) + cx;
       double y = r1 * sin(theta) + cy;
