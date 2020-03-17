@@ -81,9 +81,9 @@ struct matrix * generate_sphere(double cx, double cy, double cz,
                                 double r, int step ) {
   struct matrix * points = new_matrix(4,4);
   for (int cir = 0; cir < step; cir++){
-    double phi = 2 * M_PI / step;
+    double phi = cir * 2 * M_PI / step;
     for (int rot = 0; rot < step; rot ++){
-      double theta = cir * M_PI / step;
+      double theta = rot * M_PI / step;
       double x = r * cos(theta) + cx;
       double y = r * sin(theta) * cos(phi) + cy;
       double z = r * sin(theta) * sin(phi) + cz;
@@ -136,9 +136,9 @@ struct matrix * generate_torus( double cx, double cy, double cz,
                                 double r1, double r2, int step ) {
   struct matrix * points = new_matrix(4,4);
   for(int cir = 0; cir < step; cir++){
-    double phi = 2 * M_PI / step;
+    double phi = cir * 2 * M_PI / step;
     for(int rot = 0; rot < step; rot++){
-      double theta = M_PI / step;
+      double theta = rot * M_PI / step;
       double x = cos(phi) * (r1 * cos(theta) + r2) + cx;
       double y = r1 * sin(theta) + cy;
       double z = -sin(phi) * (r1 * cos(theta) + r2) + cz;

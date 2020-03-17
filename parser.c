@@ -210,6 +210,11 @@ void parse_file ( char * filename,
       ident(transform);
     }//end ident
 
+    else if ( strncmp(line, "clear", strlen(line)) == 0 ) {
+      //printf("clear\t%s", line);
+      edges->lastcol = 0;
+    }//end clear
+
     else if ( strncmp(line, "apply", strlen(line)) == 0 ) {
       //printf("APPLY\t%s", line);
       matrix_mult(transform, edges);
